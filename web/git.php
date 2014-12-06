@@ -1,6 +1,6 @@
 <?php
+    chdir('../');
 	$commands = array(
-		'cd ../',
 		'git pull origin master',
 		'php app/console cache:clear --env=prod',
 		'php app/console cache:clear',
