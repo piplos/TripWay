@@ -1,7 +1,7 @@
 <?php
     chdir('../');
 	$commands = array(
-		'git pull origin master',
+        'git pull origin master 2>&1',
 		'php app/console cache:clear --env=prod',
 		'php app/console cache:clear',
 		'php app/console doctrine:schema:update --force'
