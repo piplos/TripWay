@@ -27,7 +27,7 @@ class City
     protected $coordinates;
     
     /**
-     * @ORM\OneToMany(targetEntity="PM\GBundle\Entity\Task", inversedBy="city", cascade={"persist","remove"} )
+     * @ORM\OneToMany(targetEntity="PM\GBundle\Entity\Task", mappedBy="id")
      */
     protected $tasks;
 
