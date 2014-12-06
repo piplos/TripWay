@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class Game
+class Coordinate
 {
     /**
      * @ORM\Id
@@ -17,13 +17,13 @@ class Game
     protected $id;
 
     /**
-     * @var \DateTime
+     * @ORM\Column(type="string")
      */
-    protected $startedAt;
+    protected $lon;
 
     /**
-     * @var \DateTime
+     * @ORM\Column(type="string")
      */
-    protected $finishedAt;
+    protected $lat;
 
 }

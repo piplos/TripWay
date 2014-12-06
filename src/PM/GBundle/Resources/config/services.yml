@@ -1,4 +1,39 @@
+parameters:
+    pmg.city.entity.class: "PM\GBundle\Entity\City"
+    pmg.city.entity.manager: "PM\GBundle\EntityManager\CityManager"
+
+    pmg.coordiante.entity.class: "PM\GBundle\Entity\Coordinate"
+    pmg.coordinate.entity.manager: "PM\GBundle\EntityManager\CoordinateManager"
+
+    pmg.game.entity.class: "PM\GBundle\Entity\Game"
+    pmg.game.entity.manager: "PM\GBundle\EntityManager\GameManager"
+
+    pmg.score.entity.class: "PM\GBundle\Entity\Score"
+    pmg.score.entity.manager: "PM\GBundle\EntityManager\ScoreManager"
+
+    pmg.task.entity.class: "PM\GBundle\Entity\Task"
+    pmg.task.entity.manager: "PM\GBundle\EntityManager\TaskManager"
+
 services:
-#    pmg.example:
-#        class: PM\GBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    pmg.manager.city:
+        class: %pmg.city.entity.manager%
+        arguments: [%pmg.city.entity.class% @doctrine.orm.entity_manager, @security.context]
+
+    pmg.manager.coordinate:
+        class: %pmg.coordinate.entity.manager%
+        arguments: [%pmg.coordiante.entity.class% @doctrine.orm.entity_manager, @security.context]
+
+    pmg.manager.game:
+        class: %pmg.game.entity.manager%
+        arguments: [%pmg.game.entity.class% @doctrine.orm.entity_manager, @security.context]
+
+    pmg.manager.score:
+        class: %pmg.score.entity.manager%
+        arguments: [%pmg.score.entity.class% @doctrine.orm.entity_manager, @security.context]
+
+    pmg.manager.task:
+        class: %pmg.task.entity.manager%
+        arguments: [%pmg.task.entity.class% @doctrine.orm.entity_manager, @security.context]
+
+
+
