@@ -1,5 +1,4 @@
 TripWay
 =======
 
-Demo site http://piplosmedia.koding.io/
-
+Demo site http://piplosmedia.koding.io/ Welcome!
