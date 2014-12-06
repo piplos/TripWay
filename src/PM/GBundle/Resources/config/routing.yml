@@ -1,0 +1,7 @@
+pmg_dashboard:
+    resource: "@PMGBundle/Controller/DashboardController.php"
+    type: annotation
+
+pmg_site:
+    resource: "@PMGBundle/Controller/SiteController.php"
+    type: annotation
