@@ -4,7 +4,11 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript">
         var map;
+        var marker; // only one
+        var city = 1; // first city id
+        var cities = [];
         var type_id = 'type_id';
+
         function initialize() {
             var featureOpts = [
                 {
@@ -28,30 +32,29 @@
                 }
 
             ];
-
+            var center = new google.maps.LatLng(53.452062, 16.198032);
             var mapOptions = {
-                center: new google.maps.LatLng(53.452062, 16.198032),
+                center: center,
                 zoom: 6,
-                mapTypeControlOptions: {
-                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, type_id]
-                },
-                mapTypeId: type_id,
                 disableDoubleClickZoom: true,
                 draggable: true,
-                scrollwheel: false,
+                scrollwheel: true,
                 panControl: false,
                 zoomControl: false,
                 mapTypeControl: false,
                 scaleControl: false,
                 streetViewControl: false,
                 overviewMapControl: false,
-                MapTypeStyleElementType:
-                {
-                    featureType: "landscape.man_made"
-                }
+                draggableCursor: 'pointer',
+
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, type_id]
+                },
+                mapTypeId: type_id
 
             };
-            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
             var styledMapOptions = {
                 name: 'Intro style'
@@ -63,8 +66,49 @@
 
 
             google.maps.event.addListener(map, 'click', function(e){
-                alert(e.latLng);
+                addMarker(e.latLng);
             });
+
+            google.maps.event.addListener(tipOk, 'closeclick', function(e){
+                marker.setMap(null);
+            });
+        }
+
+        var contentTipOk = '<button onclick="addCity()">Are you sure?</button>';
+        var tipOk = new google.maps.InfoWindow({
+            content: contentTipOk,
+            disableAutoPan: false
+        });
+
+        var image = {
+            url: 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Ball-Pink-icon.png',
+            scaledSize: new google.maps.Size(46, 46),
+            anchor: new google.maps.Point(21, 46)
+
+        }
+
+        function addMarker(location) {
+
+            if (typeof marker !== 'undefined') {
+                marker.setMap(null);
+            }
+
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                icon: image,
+                title : 'This city'
+            });
+            tipOk.open(map,marker);
+            console.log(cities);
+
+        }
+
+        function addCity() {
+            cities.push([city, marker.getPosition()]);
+            city++;
+            tipOk.close();
+            marker.setMap();
         }
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
