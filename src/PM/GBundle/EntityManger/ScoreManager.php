@@ -1,6 +1,6 @@
 <?php
 
-namespace PM\GBundle\EntityManger;
+namespace PM\GBundle\EntityManager;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Security\Core\SecurityContext;

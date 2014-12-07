@@ -17,10 +17,10 @@ class DashboardController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/", name="pmg_dashboard_index")
+     * @Route("/dashboard", name="pmg_dashboard_index")
      * @Template()
      */
-    public function indexAction()
+    public function dashboardAction()
     {
         return [];
     }

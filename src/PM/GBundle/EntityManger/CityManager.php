@@ -1,6 +1,6 @@
 <?php
 
-namespace PM\GBundle\EntityManger;
+namespace PM\GBundle\EntityManager;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -54,6 +54,21 @@ class CityManager
     final public function create()
     {
         return new $this->class;
+    }
+
+    /**
+     * Returns list of random cities
+     *
+     * @param int $limit
+     * @return array
+     */
+    final public function randomCities($limit = 5) {
+        return $this->em->createQuery('SELECT p, RAND() as HIDDEN rand
+            FROM PMGBundle:City c
+            ORDER BY rand
+        ')
+            ->setMaxResults($limit)
+            ->getResult();
     }
 
 
