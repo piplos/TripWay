@@ -81,9 +81,9 @@
         });
 
         var image = {
-            url: 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Ball-Pink-icon.png',
+            url: 'https://cdn3.iconfinder.com/data/icons/digital-marketing/512/flag_pin_goal_complete_flat_icon-512.png',
             scaledSize: new google.maps.Size(46, 46),
-            anchor: new google.maps.Point(21, 46)
+            anchor: new google.maps.Point(5, 44)
 
         }
 
@@ -116,6 +116,23 @@
         #map {
             width: 100%;
             height: 800px;
+        }
+        button {
+            background-color: #34495e;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:active {
+            margin-top: 1px;
+            padding-top: 10px;
+            padding-bottom: 9px;
+            outline: none;
         }
     </style>
 </head>
