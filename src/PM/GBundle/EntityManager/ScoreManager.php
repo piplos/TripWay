@@ -7,9 +7,9 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 /**
  * Class TaskManger
- * @package PM\GBundle\EntityManger
+ * @package PM\GBundle\EntityManager
  */
-class GameManager
+class ScoreManager
 {
 
     /**
